@@ -30,24 +30,8 @@ jobs:
         run: |
           cp native/AndroidManifest.xml android/app/src/main/AndroidManifest.xml
           mkdir -p android/app/src/main/java/com/example/desktoppet
-          cp native/java/com/example/desktoppet/DesktopPetPlugin.kt android/app/src/main/java/com/example/desktoppet/
-          cp native/java/com/example/desktoppet/OverlayService.kt android/app/src/main/java/com/example/desktoppet/
-          rm -f android/app/src/main/java/com/example/desktoppet/MainActivity.kt
           rm -f android/app/src/main/java/com/example/desktoppet/MainActivity.java
-          cat > android/app/src/main/java/com/example/desktoppet/MainActivity.java <<'EOF'
-          package com.example.desktoppet;
-
-          import com.getcapacitor.BridgeActivity;
-          import android.os.Bundle;
-
-          public class MainActivity extends BridgeActivity {
-              @Override
-              public void onCreate(Bundle savedInstanceState) {
-                  super.onCreate(savedInstanceState);
-                  registerPlugin(DesktopPetPlugin.class);
-              }
-          }
-          EOF
+          cp native/java/com/example/desktoppet/*.kt android/app/src/main/java/com/example/desktoppet/
 
       - name: Sync Capacitor
         run: npx cap sync android

@@ -30,8 +30,7 @@ jobs:
         run: |
           cp native/AndroidManifest.xml android/app/src/main/AndroidManifest.xml
           mkdir -p android/app/src/main/java/com/example/desktoppet
-          rm -f android/app/src/main/java/com/example/desktoppet/MainActivity.java
-          cp native/java/com/example/desktoppet/*.kt android/app/src/main/java/com/example/desktoppet/
+          cp native/java/com/example/desktoppet/*.java android/app/src/main/java/com/example/desktoppet/
 
       - name: Sync Capacitor
         run: npx cap sync android
